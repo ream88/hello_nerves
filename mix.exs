@@ -3,25 +3,31 @@ defmodule HelloNerves.Mixfile do
 
   @target System.get_env("MIX_TARGET") || "host"
 
-  Mix.shell.info([:green, """
-  Mix environment
-    MIX_TARGET:   #{@target}
-    MIX_ENV:      #{Mix.env}
-  """, :reset])
+  Mix.shell().info([
+    :green,
+    """
+    Mix environment
+      MIX_TARGET:   #{@target}
+      MIX_ENV:      #{Mix.env()}
+    """,
+    :reset
+  ])
 
   def project do
-    [app: :hello_nerves,
-     version: "0.1.0",
-     elixir: "~> 1.4",
-     target: @target,
-     archives: [nerves_bootstrap: "~> 0.6"],
-     deps_path: "deps/#{@target}",
-     build_path: "_build/#{@target}",
-     lockfile: "mix.lock.#{@target}",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     aliases: aliases(@target),
-     deps: deps()]
+    [
+      app: :hello_nerves,
+      version: "0.1.0",
+      elixir: "~> 1.4",
+      target: @target,
+      archives: [nerves_bootstrap: "~> 0.6"],
+      deps_path: "deps/#{@target}",
+      build_path: "_build/#{@target}",
+      lockfile: "mix.lock.#{@target}",
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      aliases: aliases(@target),
+      deps: deps()
+    ]
   end
 
   # Configuration for the OTP application.
@@ -36,9 +42,9 @@ defmodule HelloNerves.Mixfile do
   def application("host") do
     [extra_applications: [:logger]]
   end
+
   def application(_target) do
-    [mod: {HelloNerves.Application, []},
-     extra_applications: [:logger]]
+    [mod: {HelloNerves.Application, []}, extra_applications: [:logger]]
   end
 
   # Dependencies can be Hex packages:
@@ -51,12 +57,12 @@ defmodule HelloNerves.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   def deps do
-    [{:nerves, "~> 0.7", runtime: false}] ++
-    deps(@target)
+    [{:nerves, "~> 0.7", runtime: false}] ++ deps(@target)
   end
 
   # Specify target specific dependencies
   def deps("host"), do: []
+
   def deps(target) do
     [
       {:bootloader, "~> 0.1"},
@@ -72,13 +78,15 @@ defmodule HelloNerves.Mixfile do
   def system("linkit"), do: [{:nerves_system_linkit, ">= 0.0.0", runtime: false}]
   def system("ev3"), do: [{:nerves_system_ev3, ">= 0.0.0", runtime: false}]
   def system("qemu_arm"), do: [{:nerves_system_qemu_arm, ">= 0.0.0", runtime: false}]
-  def system(target), do: Mix.raise "Unknown MIX_TARGET: #{target}"
+  def system(target), do: Mix.raise("Unknown MIX_TARGET: #{target}")
 
   # We do not invoke the Nerves Env when running on the Host
   def aliases("host"), do: []
-  def aliases(_target) do
-    ["deps.precompile": ["nerves.precompile", "deps.precompile"],
-     "deps.loadpaths":  ["deps.loadpaths", "nerves.loadpaths"]]
-  end
 
+  def aliases(_target) do
+    [
+      "deps.precompile": ["nerves.precompile", "deps.precompile"],
+      "deps.loadpaths": ["deps.loadpaths", "nerves.loadpaths"]
+    ]
+  end
 end
