@@ -44,7 +44,7 @@ defmodule HelloNerves.Mixfile do
   end
 
   def application(_target) do
-    [mod: {HelloNerves.Application, []}, extra_applications: [:logger]]
+    [mod: {HelloNerves, []}, extra_applications: [:logger]]
   end
 
   # Dependencies can be Hex packages:
@@ -66,18 +66,12 @@ defmodule HelloNerves.Mixfile do
   def deps(target) do
     [
       {:bootloader, "~> 0.1"},
-      {:nerves_runtime, "~> 0.4"}
+      {:nerves_runtime, "~> 0.4"},
+      {:nerves_leds, "~> 0.7"}
     ] ++ system(target)
   end
 
-  def system("rpi"), do: [{:nerves_system_rpi, ">= 0.0.0", runtime: false}]
-  def system("rpi0"), do: [{:nerves_system_rpi0, ">= 0.0.0", runtime: false}]
-  def system("rpi2"), do: [{:nerves_system_rpi2, ">= 0.0.0", runtime: false}]
-  def system("rpi3"), do: [{:nerves_system_rpi3, ">= 0.0.0", runtime: false}]
-  def system("bbb"), do: [{:nerves_system_bbb, ">= 0.0.0", runtime: false}]
-  def system("linkit"), do: [{:nerves_system_linkit, ">= 0.0.0", runtime: false}]
-  def system("ev3"), do: [{:nerves_system_ev3, ">= 0.0.0", runtime: false}]
-  def system("qemu_arm"), do: [{:nerves_system_qemu_arm, ">= 0.0.0", runtime: false}]
+  def system("rpi"), do: [{:nerves_system_rpi, "~> 0.16.0", runtime: false}]
   def system(target), do: Mix.raise("Unknown MIX_TARGET: #{target}")
 
   # We do not invoke the Nerves Env when running on the Host
