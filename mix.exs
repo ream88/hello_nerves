@@ -57,7 +57,10 @@ defmodule HelloNerves.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   def deps do
-    [{:nerves, "~> 0.7", runtime: false}] ++ deps(@target)
+    [
+      {:nerves, "~> 0.7", runtime: false},
+      {:morse, "~> 1.0.1"}
+    ] ++ deps(@target)
   end
 
   # Specify target specific dependencies

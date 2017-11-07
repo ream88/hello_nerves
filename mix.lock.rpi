@@ -2,6 +2,7 @@
   "bootloader": {:hex, :bootloader, "0.1.2", "835ddcf50b796714658f342061d5d48ebc34cbd0d81cdbd5a5a8ae00705d72b1", [:mix], [{:distillery, "~> 1.0", [hex: :distillery, repo: "hexpm", optional: false]}], "hexpm"},
   "distillery": {:hex, :distillery, "1.5.2", "eec18b2d37b55b0bcb670cf2bcf64228ed38ce8b046bb30a9b636a6f5a4c0080", [:mix], [], "hexpm"},
   "elixir_make": {:hex, :elixir_make, "0.4.0", "992f38fabe705bb45821a728f20914c554b276838433349d4f2341f7a687cddf", [:mix], [], "hexpm"},
+  "morse": {:hex, :morse, "1.0.1", "f188dd2a69da6d26e8b7c309f31eab411403ac4517c2fb9e256a3a7ea2b2bdb1", [], [], "hexpm"},
   "nerves": {:hex, :nerves, "0.7.5", "3aa6a336b2ad6c1c9589cc2b577511b3c4c375c1ba6c533ab9f88adb8c21f0c3", [:mix], [{:distillery, "~> 1.4", [hex: :distillery, repo: "hexpm", optional: false]}], "hexpm"},
   "nerves_leds": {:hex, :nerves_leds, "0.8.0", "193692767dca1a201b09113d242648493b9be0087bab83ebee99c3b0a254f5e1", [:mix], [], "hexpm"},
   "nerves_runtime": {:hex, :nerves_runtime, "0.5.0", "5f4135fe3c94ca5c9e25d677350fbb136f279d14aac4871236961b6f5ccbcfa5", [:make, :mix], [{:elixir_make, "~> 0.4", [hex: :elixir_make, repo: "hexpm", optional: false]}, {:system_registry, "~> 0.5", [hex: :system_registry, repo: "hexpm", optional: false]}], "hexpm"},
