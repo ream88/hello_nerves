@@ -39,12 +39,8 @@ defmodule HelloNerves.Mixfile do
   # It is common that the application start function will start and supervise
   # applications which could cause the host to fail. Because of this, we only
   # invoke HelloNerves.start/2 when running on a target.
-  def application("host") do
-    [extra_applications: [:logger]]
-  end
-
   def application(_target) do
-    [mod: {HelloNerves, []}, extra_applications: [:logger]]
+    [mod: {HelloNerves.Application, []}, extra_applications: [:logger]]
   end
 
   # Dependencies can be Hex packages:
