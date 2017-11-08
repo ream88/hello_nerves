@@ -10,6 +10,7 @@ My goals for this project are:
 - [x] Build and run an OTP application on the Raspberry Pi.
 - [x] Start communication via Morse code. (I'm currently lacking any
 HDMI-enabled display).
+- [ ] Enable the network interface.
 - [ ] Provide some form of communication via LAN. Maybe `iex` over LAN?
 
 ## Things I've learned so far
