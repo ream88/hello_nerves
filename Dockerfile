@@ -12,3 +12,6 @@ RUN mix deps.get
 RUN mix compile
 
 COPY . /home
+VOLUME /home
+
+CMD ["iex", "-S", "mix"]

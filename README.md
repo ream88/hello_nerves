@@ -26,3 +26,21 @@ of the SD's I have are working correctly with macOS.
 errors, however more files and devices are at their expected places. I switched
 therefore to Docker for testing (and it's never bad to refresh the Docker
 knowledge).
+
+## Setup
+
+Build the Docker image with the following command.
+
+```sh
+docker build . -t hello_nerves
+```
+
+## Usage
+
+Creates and starts the container with `iex -S mix` in the foreground. Due to the
+`--rm` argument, the container is cleaned up after exiting. The
+`-v $(pwd):/home` allows code changes without rebuilding the image.
+
+```sh
+docker run -i -t -v $(pwd):/home --rm hello_nerves
+```
