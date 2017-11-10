@@ -3,16 +3,6 @@ defmodule HelloNerves.Mixfile do
 
   @target System.get_env("MIX_TARGET") || "host"
 
-  Mix.shell().info([
-    :green,
-    """
-    Mix environment
-      MIX_TARGET:   #{@target}
-      MIX_ENV:      #{Mix.env()}
-    """,
-    :reset
-  ])
-
   def project do
     [
       app: :hello_nerves,
