@@ -21,7 +21,7 @@ defmodule HelloNerves.Morse do
 
   def start_link() do
     led_list = Application.get_env(:hello_nerves, :led_list)
-    spawn(fn -> blink_list_forever(led_list) end)
+    spawn_link(fn -> blink_list_forever(led_list) end)
     {:ok, self()}
   end
 
