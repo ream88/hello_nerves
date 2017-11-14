@@ -8,25 +8,40 @@ ago.
 My goals for this project are:
 
 - [x] Build and run an OTP application on the Raspberry Pi.
-- [x] Start communication via Morse code. (I'm currently lacking any
-HDMI-enabled display).
+- [x] Start communication via Morse code.
 - [ ] Enable the network interface.
 - [ ] Provide some form of communication via LAN. Maybe `iex` over LAN?
 
 ## Things I've learned so far
 
-- SD's are crap. Even from brands like Kingston. For hours I was wondering why
-my code wasn't working which was very cumbersome without a display connected to
-the Raspberry Pi. Sometimes even the included examples failed to run. Switching
-to my SanDisk SD fixed all these problems.
+- SD cards are crap. Even from brands like Kingston. For hours I was wondering
+why my code wasn't working which was very cumbersome without a display connected
+to the Raspberry Pi. Sometimes even the included examples failed to run.
+Switching to my SanDisk SD card fixed all these problems.
 
-- Appearantly OSes are compensating lots of the above mentioned problems. All
-of the SD's I have are working correctly with macOS.
+- Apparently OS’es are compensating lots of the above mentioned problems. All
+of the SD cards I have are working correctly with macOS.
 
 - Testing (as far as possible) is better done on a Linux system. I still receive
 errors, however more files and devices are at their expected places. I switched
 therefore to Docker for testing (and it's never bad to refresh the Docker
 knowledge).
+
+- Did I say SD cards are crap? The SanDisk microSDHC stopped working too.
+Bought a new SanDisk card, looks promising right now.
+
+- Debugging without a monitor is a pain in the butt, probably due to the faulty
+SD cards. Bought a small display as I didn't have any HDMI enabled one or TV
+lying around. Even with a monitor it is hard if you try to work with a German
+keyboard layout, so I ordered a keyboard with a US layout as well. This
+playground is getting expensive, just look at the list below.
+
+## Requirements
+
+- [SD card](https://www.amazon.de/gp/product/B014IX02KC)
+- [Display](https://www.amazon.de/gp/product/B0716PPC2N)
+(It looks like they updated it, I got the previous one.)
+- [Keyboard with US Layout](https://www.amazon.de/gp/product/B002BOUA6M)
 
 ## Setup
 
